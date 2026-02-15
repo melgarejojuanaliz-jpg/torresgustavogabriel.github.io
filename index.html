@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz San Valentín 💖</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #1d2671, #c33764);
+      color: white;
+      overflow-x: hidden;
+      transition: background 1.2s ease;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card { max-width: 850px; }
+
+    h1 {
+      font-size: clamp(30px, 6vw, 48px);
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: clamp(16px, 2.5vw, 20px);
+      line-height: 1.9;
+      opacity: 0.95;
+    }
+
+    .buttons { margin-top: 35px; }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-size: 15px;
+      cursor: pointer;
+      margin: 8px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    .primary { background: white; color: #c33764; }
+    .secondary { background: #ff6b81; color: white; }
+    .ghost { background: rgba(255,255,255,0.2); color: white; }
+
+    .hidden {
+      display: none;
+      margin-top: 20px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .alt-bg { background: linear-gradient(135deg, #000000, #434343); }
+
+    .hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 18px;
+      opacity: 0.5;
+      animation: float 7s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh) scale(0.6); opacity: 0; }
+      to { transform: translateY(-10vh) scale(1.2); opacity: 0.6; }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 70px 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Música -->
+  <audio id="music" loop>
+    <source src="hotelcalifornia.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="hearts" id="hearts"></div>
+
+  <section>
+    <div class="card">
+      <h1>Feliz San Valentín 💖</h1>
+      <p>
+        Hoy es un día que muchas personas usan como excusa para hablar de amor, de cariño,
+        de sentimientos que a veces cuestan poner en palabras. Pero para mí, más que una
+        fecha especial, es simplemente un momento perfecto para recordarte algo que siento
+        todos los días, incluso cuando no lo digo de forma tan directa.
+      </p>
+      <p>
+        Pensar en vos se volvió algo natural, casi automático. No es algo que tenga que
+        forzar o buscar. Simplemente pasa. En medio de cualquier cosa, en cualquier momento
+        del día, aparecés en mis pensamientos de la forma más simple y más sincera.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <p>
+        Me gusta lo que compartimos, la forma en que todo se siente tan genuino, tan liviano
+        y tan real. No se trata de gestos enormes ni de cosas exageradas, sino de pequeños
+        momentos que, sin hacer ruido, terminan teniendo un significado enorme para mí.
+      </p>
+      <p>
+        A veces basta una conversación corta, una risa, una simple interacción para que mi
+        día cambie completamente de tono. Y eso es algo que no pasa con cualquiera. Eso es
+        algo que tiene que ver con vos, con tu forma de ser, con tu manera de estar presente
+        incluso en la distancia.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h1>Cosas que quiero que sientas ✨</h1>
+      <div class="buttons">
+        <button class="primary" onclick="toggle('m1')">Si sonreís</button>
+        <button class="secondary" onclick="toggle('m2')">Si quieres un abrazo</button>
+        <button class="ghost" onclick="toggle('m3')">Si me pensás</button>
+      </div>
+
+      <div id="m1" class="hidden">
+        <p>
+          Tu sonrisa tiene algo que no puedo explicar del todo. No es solo algo lindo de ver,
+          es una sensación. Es esa clase de detalle que se queda dando vueltas en mi cabeza,
+          que aparece en mi memoria sin avisar y que, de alguna manera, siempre logra provocarme
+          algo bueno. Saber que puedo ser una pequeña parte de esa sonrisa, aunque sea a la
+          distancia, es algo que valoro muchísimo más de lo que imaginás.
+        </p>
+      </div>
+
+      <div id="m2" class="hidden">
+        <p>
+          Si alguna vez sentís que necesitás un abrazo, quiero que recuerdes algo muy simple:
+          aunque no pueda estar físicamente ahí, mi cariño por vos es completamente real.
+          Imagino muchas veces lo que sería poder acercarme, rodearte con los brazos y quedarme
+          ahí, en silencio, simplemente disfrutando de tu presencia. Porque a veces un abrazo
+          no es solo contacto, es tranquilidad, es compañía, es una forma de decir "estoy acá".
+        </p>
+      </div>
+
+      <div id="m3" class="hidden">
+        <p>
+          Me pregunto cuántas veces, en medio de tus días, aparezco en tus pensamientos así
+          como vos aparecés en los míos. Hay algo increíblemente bonito en saber que dos
+          personas pueden sentirse cerca incluso cuando hay kilómetros de por medio. Pensarte
+          no es un esfuerzo, es algo que surge solo, con naturalidad, con una mezcla de cariño
+          y una sensación difícil de describir.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h1>Un pequeño cambio de ambiente 💫</h1>
+      <p>
+        Así como los momentos cambian, las emociones también tienen matices. Esta pequeña
+        interacción es solo un detalle simbólico, una forma simple de transformar el entorno,
+        como una metáfora de cómo alguien puede cambiar completamente la atmósfera de tu vida
+        sin siquiera intentarlo demasiado.
+      </p>
+      <button class="primary" onclick="changeBg(); playMusic();">Cambiar ambiente</button>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <h1>Gracias por estar en mi vida 💕</h1>
+      <p>
+        Gracias por tu forma de ser, por tu manera de hablar, por tu tiempo y por cada pequeño
+        instante compartido. Incluso en algo tan intangible como la distancia, lográs generar
+        cercanía, comodidad y una sensación de conexión que no es común ni fácil de encontrar.
+      </p>
+      <p>
+        Hoy, en San Valentín, solo quería que tengas un pequeño recordatorio de todo esto.
+        Algo que puedas abrir, leer y sentir. Algo que, aunque sencillo, esté cargado de lo más
+        importante: lo que siento por vos.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.25 });
+
+    sections.forEach(sec => observer.observe(sec));
+
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function changeBg() {
+      document.body.classList.toggle('alt-bg');
+    }
+
+    function playMusic() {
+      const music = document.getElementById('music');
+      music.play().catch(() => {});
+    }
+
+    const hearts = document.getElementById('hearts');
+    for (let i = 0; i < 30; i++) {
+      const h = document.createElement('div');
+      h.className = 'heart';
+      h.innerText = '❤';
+      h.style.left = Math.random() * 100 + 'vw';
+      h.style.animationDelay = (Math.random() * 7) + 's';
+      h.style.fontSize = (14 + Math.random() * 20) + 'px';
+      hearts.appendChild(h);
+    }
+  </script>
+
+</body>
+</html>
